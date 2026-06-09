@@ -1,45 +1,632 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | Porfolio</title>
-  </head>
-  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
-    <canvas id="unity-canvas" width=1920 height=1080 tabindex="-1" style="width: 1920px; height: 1080px; background: #231F20"></canvas>
-    <script src="Build/game.loader.js"></script>
-    <script>
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
+<!DOCTYPE HTML>
+<!--
+    Strata by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Long Ngo Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="is-preload">
 
-        var canvas = document.querySelector("#unity-canvas");
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
-        canvas.style.position = "fixed";
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+            <a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
+            <p>
+                <h1><strong> Hi, thanks for visiting my portfolio! </strong></h1>
+            </p>
+            <p>
+                <h1>
+                    <strong>
+                        I am Long Ngo, a Unity Game Developer<br>
+                        with at least 4 years experience.<br>
+                        Here you can find some of my works and projects that I have done in the past.<br>
+                        Feel free to contact me if you have any questions or want to work together.
+                    </strong>
+                </h1>
+            </p>
+        </div>
+    </header>
 
-        document.body.style.textAlign = "left";
+    <!-- Main -->
+    <div id="main">
 
-      }
+        <!-- One -->
+        <section id="one">
+            <header class="major">
+                <h2><strong>Summary & Career Objective</strong></h2>
+            </header>
+            <p>
+                <strong>
+                    Game Developer with hands-on experience in developing 2D and 3D games, focusing on performance optimization, gameplay improvement, and delivering high-quality user experiences. <br>
+                </strong>
+            </p>
+            <p>
+                <strong>
+                    Proficient in identifying technical challenges and proposing effective solutions while continuously learning and staying updated with the latest industry trends and technologies.<br>
+                </strong>
+            </p>
+            <p>
+                <strong>
+                    With prior experience as a Product Owner, I bring a strong understanding of product thinking, development workflows, and cross-functional collaboration.<br>
+                    I aim to contribute not only from a technical perspective but also in shaping product direction and ensuring successful delivery of game projects from both development and business standpoints.
+                </strong>
+            </p>
+            <!--<ul class="actions">
+                <li><a href="#" class="button">Learn More</a></li>
+            </ul>-->
+        </section>
 
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        arguments: [],
-        dataUrl: "Build/game.data",
-        frameworkUrl: "Build/game.framework.js",
-        codeUrl: "Build/game.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "LongSum",
-        productName: "Porfolio",
-        productVersion: "1.0.0",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      }).then((unityInstance) => {
-      }).catch((message) => {
-        alert(message);
-      });
-    </script>
-  </body>
+        <!-- Two -->
+        <section id="two">
+            <h2>Selected Projects</h2>
+            <p>For more detail please click view project.</p>
+            <div class="row">
+                <article class="col-6 col-12-small work-item">
+                    <a href="images/fulls/01.jpg?v=2" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
+                    <h3>ASMR Ball Slider 3D</h3>
+                    <p>
+                        Purchase the balls and see your gold going up to the moon in this ASMR game.<br />
+                    </p>
+                    <div class="col-12">
+                        <a href="https://appmagic.rocks/google-play/asmr-ball-slider-3d/com.hapiga.asmrball3d"
+                           class="icon solid fa-mobile"
+                           target="_blank">
+                            App Magic
+                        </a>
+                    </div>
+                </article>
+                <article class="col-6 col-12-small work-item">
+                    <a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="" /></a>
+                    <h3>Endless Climb: Stair Run</h3>
+                    <p>
+                        How far can you climb? To infinity and beyond! <br />
+                    </p>
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="https://play.google.com/store/apps/details?id=com.infinitestaircase.climb.run"
+                               class="icon brands fa-android"
+                               target="_blank">
+                                Google Play
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <a href="https://apps.apple.com/us/app/endless-climb-stair-run/id6468239614"
+                               class="icon brands fa-app-store-ios"
+                               target="_blank">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-6 col-12-small work-item">
+                    <a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
+                    <h3>Water Sort: Color Matching</h3>
+                    <p>This is a water sorting puzzle game that you will love! It is simple to play, but it will challenge your brain and make you think hard.</p>
+                    <div class="row">
+                        <a href="https://appmagic.rocks/google-play/water-sort-color-matching/com.hapiga.watersort" class="icon solid fa-mobile" target="_blank">App Magic</a>
+                    </div>
+                </article>
+                <article class="col-6 col-12-small work-item">
+                    <a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
+                    <h3>Merge Brainrot: Puzzle Mania</h3>
+                    <p>Combine your favorite internet animal memes and watch them transform into wild, wacky, and totally unexpected meme creatures.</p>
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="https://play.google.com/store/apps/details?id=com.meme.merge.gigachad"
+                               class="icon brands fa-android"
+                               target="_blank">
+                                Google Play
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <a href="https://apps.apple.com/us/app/merge-brainrot-puzzle-mania/id6476873218"
+                               class="icon brands fa-app-store-ios"
+                               target="_blank">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-6 col-12-small work-item">
+                    <a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
+                    <h3>Arrow a Row</h3>
+                    <p>
+                        A simplistic roguelite endless runner.
+                        You have to quickly make decisions on which power-up to pick and whether to skip or fight a monster. <br />
+                    </p>
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="https://play.google.com/store/apps/details?id=com.archer.rush.sword.arrow"
+                               class="icon brands fa-android"
+                               target="_blank">
+                                Google Play
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <a href="https://apps.apple.com/us/app/arrow-a-row/id6479535362"
+                               class="icon brands fa-app-store-ios"
+                               target="_blank">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-6 col-12-small work-item">
+                    <a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
+                    <h3>Satismoment</h3>
+                    <p>Your daily dose of cuteness! This game will bring to you oddly satisfying moments through dedicated gameplay and graphics!</p>
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="https://play.google.com/store/apps/details?id=com.satisfying.sort.puzzle"
+                               class="icon brands fa-android"
+                               target="_blank">
+                                Google Play
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <a href="https://apps.apple.com/us/app/satismoment/id6503938930"
+                               class="icon brands fa-app-store-ios"
+                               target="_blank">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-6 col-12-small work-item">
+                    <a href="images/fulls/07.jpg" class="image fit thumb"><img src="images/thumbs/07.jpg" alt="" /></a>
+                    <h3>Block fortress: Tower defense</h3>
+                    <p>It’s more of a tower than a castle, but it’s yours to defend in this intense tower defense game.</p>
+                    <div class="row">
+                        <a href="https://appmagic.rocks/google-play/block-fortress-tower-defense/com.hero.defense.survive.tower" class="icon solid fa-mobile" target="_blank">App Magic</a>
+                    </div>
+                </article>
+                <article class="col-6 col-12-small work-item">
+                    <a href="images/fulls/08.jpg" class="image fit thumb"><img src="images/thumbs/08.jpg" alt="" /></a>
+                    <h3>Digging a Hole: 3D Simulator</h3>
+                    <p>Ever wondered what’s hiding beneath your backyard?</p>
+                    <div class="row">
+                        <a href="https://play.google.com/store/apps/details?id=com.dig.hole.game.simulator" class="icon solid fa-mobile" target="_blank">App Magic</a>
+                    </div>
+                </article>
+                <article class="col-6 col-12-small work-item">
+                    <a href="images/fulls/09.jpg" class="image fit thumb"><img src="images/thumbs/09.jpg" alt="" /></a>
+                    <h3>Wool Sort Color Puzzle</h3>
+                    <p>
+                        A soothing puzzle journey where vibrant yarns and satisfying logic come together to create pixel-perfect masterpieces.<br />
+                        Dive into a colorful world filled with soft textures and creative challenges.
+                    </p>
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="https://play.google.com/store/apps/details?id=com.wool.sort.color.puzzle"
+                               class="icon brands fa-android"
+                               target="_blank">
+                                Google Play
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <a href="https://apps.apple.com/us/app/wool-sort-color-puzzle/id6748447511"
+                               class="icon brands fa-app-store-ios"
+                               target="_blank">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-6 col-12-small work-item">
+                    <a href="images/fulls/10.jpg" class="image fit thumb"><img src="images/thumbs/10.jpg" alt="" /></a>
+                    <h3>Logic Match: Visual Puzzle</h3>
+                    <p>
+                        A relaxing yet clever puzzle game where observation and logic combine to create a fun brain challenge. <br />
+                        Look closely at the characters, discover their shared traits, and group them together to complete each puzzle!
+                    </p>
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="https://play.google.com/store/apps/details?id=com.horus.trait.match.visual"
+                               class="icon brands fa-android"
+                               target="_blank">
+                                Google Play
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <a href="https://apps.apple.com/us/app/logic-match-visual-puzzle/id6762239960"
+                               class="icon brands fa-app-store-ios"
+                               target="_blank">
+                                App Store
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!--<ul class="actions">
+        <li><a href="#" class="button">Full Portfolio</a></li>
+    </ul>-->
+        </section>
+
+        <!-- Three -->
+        <section id="three">
+            <h2>Get In Touch</h2>
+            <p>Feel free to reach out if you're interested in working together or would like to connect.</p>
+            <div class="row">
+                <div class="col-8 col-12-small">
+                    <form id="contactForm" action="#">
+                        <div class="row gtr-uniform gtr-50">
+                            <div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+                            <div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+                            <div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+                            <div class="col-12"><ul class="actions"><li><input type="submit" value="Send Message" /></li></ul></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4 col-12-small">
+                    <ul class="labeled-icons">
+                        <li>
+                            <h3 class="icon solid fa-home"><span class="label">Address</span></h3>
+                            Ho Chi Minh City, Vietnam
+                        </li>
+                        <li>
+                            <h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
+                            <a href="tel:+84908406942">+84 908 406 942</a>
+                        </li>
+                        <li>
+                            <h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+                            <a href="mailto:longngo.dev@gmail.com">longngo.dev@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Four -->
+        <!--
+                            <section id="four">
+                                <h2>Elements</h2>
+
+                                <section>
+                                    <h4>Text</h4>
+                                    <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+                                    This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+                                    This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+                                    <hr />
+                                    <header>
+                                        <h4>Heading with a Subtitle</h4>
+                                        <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+                                    </header>
+                                    <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+                                    <header>
+                                        <h5>Heading with a Subtitle</h5>
+                                        <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+                                    </header>
+                                    <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+                                    <hr />
+                                    <h2>Heading Level 2</h2>
+                                    <h3>Heading Level 3</h3>
+                                    <h4>Heading Level 4</h4>
+                                    <h5>Heading Level 5</h5>
+                                    <h6>Heading Level 6</h6>
+                                    <hr />
+                                    <h5>Blockquote</h5>
+                                    <blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+                                    <h5>Preformatted</h5>
+                                    <pre><code>i = 0;
+
+        while (!deck.isInOrder()) {
+        print 'Iteration ' + i;
+        deck.shuffle();
+        i++;
+        }
+
+        print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+                                </section>
+
+                                <section>
+                                    <h4>Lists</h4>
+                                    <div class="row">
+                                        <div class="col-6 col-12-xsmall">
+                                            <h5>Unordered</h5>
+                                            <ul>
+                                                <li>Dolor pulvinar etiam magna etiam.</li>
+                                                <li>Sagittis adipiscing lorem eleifend.</li>
+                                                <li>Felis enim feugiat dolore viverra.</li>
+                                            </ul>
+                                            <h5>Alternate</h5>
+                                            <ul class="alt">
+                                                <li>Dolor pulvinar etiam magna etiam.</li>
+                                                <li>Sagittis adipiscing lorem eleifend.</li>
+                                                <li>Felis enim feugiat dolore viverra.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-6 col-12-xsmall">
+                                            <h5>Ordered</h5>
+                                            <ol>
+                                                <li>Dolor pulvinar etiam magna etiam.</li>
+                                                <li>Etiam vel felis at lorem sed viverra.</li>
+                                                <li>Felis enim feugiat dolore viverra.</li>
+                                                <li>Dolor pulvinar etiam magna etiam.</li>
+                                                <li>Etiam vel felis at lorem sed viverra.</li>
+                                                <li>Felis enim feugiat dolore viverra.</li>
+                                            </ol>
+                                            <h5>Icons</h5>
+                                            <ul class="icons">
+                                                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                                                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                                                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                                                <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                                                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                                                <li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <h5>Actions</h5>
+                                    <ul class="actions">
+                                        <li><a href="#" class="button primary">Default</a></li>
+                                        <li><a href="#" class="button">Default</a></li>
+                                    </ul>
+                                    <ul class="actions small">
+                                        <li><a href="#" class="button primary small">Small</a></li>
+                                        <li><a href="#" class="button small">Small</a></li>
+                                    </ul>
+                                    <div class="row">
+                                        <div class="col-6 col-12-small">
+                                            <ul class="actions stacked">
+                                                <li><a href="#" class="button primary">Default</a></li>
+                                                <li><a href="#" class="button">Default</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-6 col-12-small">
+                                            <ul class="actions stacked">
+                                                <li><a href="#" class="button primary small">Small</a></li>
+                                                <li><a href="#" class="button small">Small</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-6 col-12-small">
+                                            <ul class="actions stacked">
+                                                <li><a href="#" class="button primary fit">Default</a></li>
+                                                <li><a href="#" class="button fit">Default</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-6 col-12-small">
+                                            <ul class="actions stacked">
+                                                <li><a href="#" class="button primary small fit">Small</a></li>
+                                                <li><a href="#" class="button small fit">Small</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <h4>Table</h4>
+                                    <h5>Default</h5>
+                                    <div class="table-wrapper">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Description</th>
+                                                    <th>Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Item One</td>
+                                                    <td>Ante turpis integer aliquet porttitor.</td>
+                                                    <td>29.99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Item Two</td>
+                                                    <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                                                    <td>19.99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Item Three</td>
+                                                    <td> Morbi faucibus arcu accumsan lorem.</td>
+                                                    <td>29.99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Item Four</td>
+                                                    <td>Vitae integer tempus condimentum.</td>
+                                                    <td>19.99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Item Five</td>
+                                                    <td>Ante turpis integer aliquet porttitor.</td>
+                                                    <td>29.99</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="2"></td>
+                                                    <td>100.00</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+
+                                    <h5>Alternate</h5>
+                                    <div class="table-wrapper">
+                                        <table class="alt">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Description</th>
+                                                    <th>Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Item One</td>
+                                                    <td>Ante turpis integer aliquet porttitor.</td>
+                                                    <td>29.99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Item Two</td>
+                                                    <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                                                    <td>19.99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Item Three</td>
+                                                    <td> Morbi faucibus arcu accumsan lorem.</td>
+                                                    <td>29.99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Item Four</td>
+                                                    <td>Vitae integer tempus condimentum.</td>
+                                                    <td>19.99</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Item Five</td>
+                                                    <td>Ante turpis integer aliquet porttitor.</td>
+                                                    <td>29.99</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="2"></td>
+                                                    <td>100.00</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <h4>Buttons</h4>
+                                    <ul class="actions">
+                                        <li><a href="#" class="button primary">Primary</a></li>
+                                        <li><a href="#" class="button">Default</a></li>
+                                    </ul>
+                                    <ul class="actions">
+                                        <li><a href="#" class="button large">Large</a></li>
+                                        <li><a href="#" class="button">Default</a></li>
+                                        <li><a href="#" class="button small">Small</a></li>
+                                    </ul>
+                                    <ul class="actions fit">
+                                        <li><a href="#" class="button primary fit">Fit</a></li>
+                                        <li><a href="#" class="button fit">Fit</a></li>
+                                    </ul>
+                                    <ul class="actions fit small">
+                                        <li><a href="#" class="button primary fit small">Fit + Small</a></li>
+                                        <li><a href="#" class="button fit small">Fit + Small</a></li>
+                                    </ul>
+                                    <ul class="actions">
+                                        <li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+                                        <li><a href="#" class="button icon solid fa-download">Icon</a></li>
+                                    </ul>
+                                    <ul class="actions">
+                                        <li><span class="button primary disabled">Primary</span></li>
+                                        <li><span class="button disabled">Default</span></li>
+                                    </ul>
+                                </section>
+
+                                <section>
+                                    <h4>Form</h4>
+                                    <form method="post" action="#">
+                                        <div class="row gtr-uniform gtr-50">
+                                            <div class="col-6 col-12-xsmall">
+                                                <input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+                                            </div>
+                                            <div class="col-6 col-12-xsmall">
+                                                <input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+                                            </div>
+                                            <div class="col-12">
+                                                <select name="demo-category" id="demo-category">
+                                                    <option value="">- Category -</option>
+                                                    <option value="1">Manufacturing</option>
+                                                    <option value="1">Shipping</option>
+                                                    <option value="1">Administration</option>
+                                                    <option value="1">Human Resources</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-4 col-12-small">
+                                                <input type="radio" id="demo-priority-low" name="demo-priority" checked>
+                                                <label for="demo-priority-low">Low Priority</label>
+                                            </div>
+                                            <div class="col-4 col-12-small">
+                                                <input type="radio" id="demo-priority-normal" name="demo-priority">
+                                                <label for="demo-priority-normal">Normal Priority</label>
+                                            </div>
+                                            <div class="col-4 col-12-small">
+                                                <input type="radio" id="demo-priority-high" name="demo-priority">
+                                                <label for="demo-priority-high">High Priority</label>
+                                            </div>
+                                            <div class="col-6 col-12-small">
+                                                <input type="checkbox" id="demo-copy" name="demo-copy">
+                                                <label for="demo-copy">Email me a copy of this message</label>
+                                            </div>
+                                            <div class="col-6 col-12-small">
+                                                <input type="checkbox" id="demo-human" name="demo-human" checked>
+                                                <label for="demo-human">I am a human and not a robot</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <ul class="actions">
+                                                    <li><input type="submit" value="Send Message" class="primary" /></li>
+                                                    <li><input type="reset" value="Reset" /></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </section>
+
+                                <section>
+                                    <h4>Image</h4>
+                                    <h5>Fit</h5>
+                                    <div class="box alt">
+                                        <div class="row gtr-50 gtr-uniform">
+                                            <div class="col-12"><span class="image fit"><img src="images/fulls/05.jpg" alt="" /></span></div>
+                                            <div class="col-4"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
+                                            <div class="col-4"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
+                                            <div class="col-4"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
+                                            <div class="col-4"><span class="image fit"><img src="images/thumbs/04.jpg" alt="" /></span></div>
+                                            <div class="col-4"><span class="image fit"><img src="images/thumbs/05.jpg" alt="" /></span></div>
+                                            <div class="col-4"><span class="image fit"><img src="images/thumbs/06.jpg" alt="" /></span></div>
+                                            <div class="col-4"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
+                                            <div class="col-4"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
+                                            <div class="col-4"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
+                                        </div>
+                                    </div>
+                                    <h5>Left &amp; Right</h5>
+                                    <p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+                                    <p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+                                </section>
+
+                            </section>
+                        -->
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                <!--<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>-->
+                <!--<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>-->
+                <li><a href="https://www.linkedin.com/in/long-ngo-4630a2310/" class="icon brands fa-brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                <li><a href="https://www.facebook.com/LongNgo.SUM/" class="icon brands fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="mailto:longngo.dev@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                <li><a href="tel:+84908406942" class="icon solid fa-phone"><span class="label">Phone</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Untitled</li>
+                <li>Original Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/contact.js"></script>
+</body>
 </html>
