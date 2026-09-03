@@ -353,6 +353,47 @@ pre {
     }
 }
 
+/* Technical skills */
+
+.skill-groups {
+    display: grid;
+    gap: 1.5em 2em;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.skill-group h3 {
+    border-bottom: solid 1px #efefef;
+    font-size: 0.95em;
+    letter-spacing: 0.075em;
+    margin-bottom: 0.75em;
+    padding-bottom: 0.5em;
+    text-transform: uppercase;
+}
+
+.skill-group ul.alt {
+    margin-bottom: 0;
+}
+
+.skill-group ul.alt li {
+    color: #666;
+    font-size: 0.9em;
+    padding: 0.4em 0;
+}
+
+.skill-languages {
+    border-top: solid 1px #efefef;
+    color: #888;
+    font-size: 0.9em;
+    margin-top: 1.75em;
+    padding-top: 1.5em;
+}
+
+@media screen and (max-width: 736px) {
+    .skill-groups {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Row */
 
 .row {
