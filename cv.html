@@ -6,6 +6,7 @@
   <meta name="description" content="Ngo Bao Long - Unity Developer with 4+ years of mobile game development experience.">
   <meta name="color-scheme" content="light dark">
   <title>Ngo Bao Long | Unity Developer</title>
+  <script src="assets/js/i18n.js" defer></script>
   <script>
     (() => {
       try {
@@ -671,7 +672,7 @@
 </head>
 <body>
   <div class="toolbar" aria-label="Document controls">
-    <button class="theme-button" id="theme-toggle" type="button" aria-pressed="false">
+    <button class="theme-button" id="theme-toggle" type="button" aria-pressed="false" data-i18n-skip>
       Dark theme
     </button>
     <button class="print-button" type="button" onclick="window.print()" aria-label="Print or save this CV as PDF">
@@ -979,12 +980,20 @@
     (() => {
       const button = document.getElementById("theme-toggle");
 
+      const t = (text) => (window.I18N ? window.I18N.t(text) : text);
+
       const updateButton = () => {
         const isDark = document.documentElement.dataset.theme === "dark";
-        button.textContent = isDark ? "Light theme" : "Dark theme";
+        button.textContent = isDark ? t("Light theme") : t("Dark theme");
         button.setAttribute("aria-pressed", String(isDark));
-        button.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+        button.setAttribute(
+          "aria-label",
+          isDark ? t("Switch to light theme") : t("Switch to dark theme")
+        );
       };
+
+      // Relabel the theme button whenever the page language changes.
+      document.addEventListener("i18n:change", updateButton);
 
       button.addEventListener("click", () => {
         const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";

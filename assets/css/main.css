@@ -353,6 +353,44 @@ pre {
     }
 }
 
+/* Language toggle */
+
+.lang-toggle {
+    background: #fff;
+    border: solid 1px #e0e0e0;
+    border-radius: 2em;
+    box-shadow: 0 0.25em 0.9em rgba(0, 0, 0, 0.08);
+    color: #666;
+    cursor: pointer;
+    font-size: 0.8em;
+    font-weight: 400;
+    letter-spacing: 0.075em;
+    line-height: 1;
+    padding: 0.85em 1.5em;
+    position: fixed;
+    right: 1.5em;
+    text-transform: uppercase;
+    top: 1.5em;
+    transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    z-index: 10000;
+}
+
+.lang-toggle:hover,
+.lang-toggle:focus-visible {
+    border-color: #49bf9d;
+    box-shadow: 0 0.4em 1.2em rgba(73, 191, 157, 0.18);
+    color: #49bf9d;
+}
+
+@media screen and (max-width: 736px) {
+    .lang-toggle {
+        font-size: 0.75em;
+        padding: 0.75em 1.2em;
+        right: 1em;
+        top: 1em;
+    }
+}
+
 /* Technical skills */
 
 .skill-groups {
