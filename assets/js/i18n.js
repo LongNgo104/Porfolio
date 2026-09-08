@@ -25,10 +25,10 @@
   const VI = {
     /* ---------- Portfolio: header ---------- */
     "Hi, thanks for visiting my portfolio!": "Xin chào, cảm ơn bạn đã ghé qua portfolio của mình!",
-    "I am Long Ngo, a Unity Developer with 4+ years of experience":
-      "Mình là Long Ngo, Unity Developer với hơn 4 năm kinh nghiệm",
-    "shipping 2D and 3D mobile games on Android and iOS.":
-      "phát hành game mobile 2D và 3D trên Android và iOS.",
+    "I am Long Ngo, a Unity Developer shipping 2D and 3D mobile games":
+      "Mình là Long Ngo, Unity Developer phát hành game mobile 2D và 3D",
+    "on Android and iOS since 2021.":
+      "trên Android và iOS từ năm 2021.",
     "Here you can find the titles I have worked on and what I do.":
       "Tại đây bạn có thể xem các tựa game mình đã tham gia và công việc mình làm.",
     "Feel free to contact me if you have any questions or want to work together.":
@@ -36,8 +36,8 @@
 
     /* ---------- Portfolio: summary ---------- */
     "Summary & Career Objective": "Giới thiệu & Định hướng nghề nghiệp",
-    "Unity Developer with 4+ years of experience shipping 2D and 3D mobile games across hyper-casual, hybrid-casual and puzzle genres — covering gameplay development, SDK integration, Android and iOS releases, performance optimization and codebase modularization.":
-      "Unity Developer với hơn 4 năm kinh nghiệm phát hành game mobile 2D và 3D thuộc các thể loại hyper-casual, hybrid-casual và puzzle — bao gồm phát triển gameplay, tích hợp SDK, phát hành trên Android và iOS, tối ưu hiệu năng và module hoá codebase.",
+    "Unity Developer shipping 2D and 3D mobile games since 2021, across hyper-casual, hybrid-casual and puzzle genres — covering gameplay development, SDK integration, Android and iOS releases, performance optimization and codebase modularization.":
+      "Unity Developer phát hành game mobile 2D và 3D từ năm 2021, thuộc các thể loại hyper-casual, hybrid-casual và puzzle — bao gồm phát triển gameplay, tích hợp SDK, phát hành trên Android và iOS, tối ưu hiệu năng và module hoá codebase.",
     "Focused on maintainable systems and smooth player experiences across a wide range of mobile devices. Comfortable profiling and fixing FPS, memory, crash and ANR issues, and on mentoring junior developers through code review and technical guidance.":
       "Tập trung vào việc xây dựng hệ thống dễ bảo trì và trải nghiệm mượt mà trên nhiều dòng thiết bị di động. Thành thạo profiling và xử lý các vấn đề về FPS, memory, crash và ANR, đồng thời hướng dẫn junior developer qua code review và định hướng kỹ thuật.",
     "With prior experience as a Product Owner, I bring a strong understanding of product thinking, development workflows, and cross-functional collaboration.":
@@ -148,8 +148,8 @@
     "Advanced reading; basic communication": "Đọc hiểu tốt; giao tiếp cơ bản",
 
     /* ---------- CV: summary and experience ---------- */
-    "Unity Developer with 4+ years of experience shipping 2D and 3D mobile games across hyper-casual, hybrid-casual and puzzle genres. Experienced in gameplay development, SDK integration, Android and iOS releases, performance optimization, codebase modularization and developer mentoring. Focused on building maintainable systems and smooth player experiences across a wide range of mobile devices.":
-      "Unity Developer với hơn 4 năm kinh nghiệm phát hành game mobile 2D và 3D thuộc các thể loại hyper-casual, hybrid-casual và puzzle. Có kinh nghiệm phát triển gameplay, tích hợp SDK, phát hành trên Android và iOS, tối ưu hiệu năng, module hoá codebase và hướng dẫn developer. Tập trung xây dựng hệ thống dễ bảo trì và mang lại trải nghiệm mượt mà trên nhiều dòng thiết bị di động.",
+    "Unity Developer shipping 2D and 3D mobile games since 2021, across hyper-casual, hybrid-casual and puzzle genres. Experienced in gameplay development, SDK integration, Android and iOS releases, performance optimization, codebase modularization and developer mentoring. Focused on building maintainable systems and smooth player experiences across a wide range of mobile devices.":
+      "Unity Developer phát hành game mobile 2D và 3D từ năm 2021, thuộc các thể loại hyper-casual, hybrid-casual và puzzle. Có kinh nghiệm phát triển gameplay, tích hợp SDK, phát hành trên Android và iOS, tối ưu hiệu năng, module hoá codebase và hướng dẫn developer. Tập trung xây dựng hệ thống dễ bảo trì và mang lại trải nghiệm mượt mà trên nhiều dòng thiết bị di động.",
     "Experience": "Kinh nghiệm làm việc",
     "Aug 2022 - May 2026": "08/2022 - 05/2026",
     "May 2021 - Aug 2021": "05/2021 - 08/2021",
@@ -201,8 +201,8 @@
     /* ---------- Page titles and meta ---------- */
     "Long Ngo Portfolio": "Portfolio của Long Ngo",
     "Ngo Bao Long | Unity Developer": "Ngo Bao Long | Unity Developer",
-    "Ngo Bao Long - Unity Developer with 4+ years of mobile game development experience.":
-      "Ngo Bao Long - Unity Developer với hơn 4 năm kinh nghiệm phát triển game mobile.",
+    "Ngo Bao Long - Unity Developer building mobile games since 2021.":
+      "Ngo Bao Long - Unity Developer phát triển game mobile từ năm 2021.",
 
     /* ---------- The language button itself ---------- */
     "Switch to Vietnamese": "Chuyển sang tiếng Anh"

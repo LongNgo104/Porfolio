@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ngo Bao Long - Unity Developer with 4+ years of mobile game development experience.">
+  <meta name="description" content="Ngo Bao Long - Unity Developer building mobile games since 2021.">
   <meta name="color-scheme" content="light dark">
   <title>Ngo Bao Long | Unity Developer</title>
   <script src="assets/js/i18n.js" defer></script>
@@ -426,7 +426,7 @@
       font-size: 0.85rem;
     }
 
-    @media (max-width: 820px) {
+    @media screen and (max-width: 820px) {
       .resume {
         grid-template-columns: 1fr;
       }
@@ -451,7 +451,7 @@
       }
     }
 
-    @media (max-width: 560px) {
+    @media screen and (max-width: 560px) {
       body {
         font-size: 1rem;
       }
@@ -671,10 +671,22 @@
       html,
       body {
         width: 210mm;
-        background: white;
         font-size: 9.4pt;
         print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
+      }
+
+      /*
+       * The root background propagates to the page canvas, so this paints the
+       * sidebar band edge-to-edge on every printed page. Without it the dark
+       * column stops wherever the sidebar text happens to end.
+       */
+      html {
+        background: linear-gradient(to right, #10293f 0 52mm, #ffffff 52mm);
+      }
+
+      body {
+        background: transparent;
       }
 
       .toolbar {
@@ -692,7 +704,12 @@
       }
 
       .sidebar {
+        display: block;
         padding: 12mm 7mm;
+      }
+
+      .sidebar section {
+        break-inside: avoid;
       }
 
       .sidebar p,
@@ -930,7 +947,7 @@
         <h1>Ngo Bao Long</h1>
         <p class="role">Unity Developer</p>
         <p class="summary">
-          Unity Developer with 4+ years of experience shipping 2D and 3D mobile games across hyper-casual,
+          Unity Developer shipping 2D and 3D mobile games since 2021, across hyper-casual,
           hybrid-casual and puzzle genres. Experienced in gameplay development, SDK integration, Android and iOS
           releases, performance optimization, codebase modularization and developer mentoring. Focused on building
           maintainable systems and smooth player experiences across a wide range of mobile devices.
