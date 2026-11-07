@@ -109,6 +109,14 @@
 
     /* ---------- CV: controls ---------- */
     "Dark theme": "Giao diện tối",
+    "Curriculum Vitae": "Sơ yếu lý lịch",
+    "Titles shipped": "Tựa game đã phát hành",
+    "Developing since": "Phát triển từ",
+    "Based in": "Địa điểm",
+    "Ho Chi Minh City": "TP. Hồ Chí Minh",
+    "Current": "Hiện tại",
+    "Light mode": "Giao diện sáng",
+    "Dark mode": "Giao diện tối",
     "Light theme": "Giao diện sáng",
     "Print / Save as PDF": "In / Lưu thành PDF",
     "Document controls": "Điều khiển tài liệu",
