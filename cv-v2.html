@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ngo Bao Long - Unity Developer building mobile games since 2021.">
+<meta name="color-scheme" content="dark light">
+<title>Ngo Bao Long | Unity Developer</title>
+<script src="assets/js/i18n-v2.js" defer></script>
+<script>
+(() => { try { const t = localStorage.getItem("cv2-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {} })();
+</script>
+<style>
+:root{
+  --bg:#03070b; --grid:rgba(90,200,190,.030);
+  --panel:#080f16; --panel-2:#0b141d; --raise:#0f1c29;
+  --line:rgba(125,215,205,.16); --line-soft:rgba(125,215,205,.09);
+  --ink:#f2f8fa; --ink-dim:#c6d8e2; --muted:#92acbc;
+  --accent:#49d6c2; --accent-2:#2fa796; --accent-ink:#06211e;
+  --glow:rgba(73,214,194,.22);
+  --chip:rgba(73,214,194,.10);
+  --sans:"Segoe UI",Inter,system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  --mono:"Cascadia Mono","JetBrains Mono",ui-monospace,Consolas,"Courier New",monospace;
+}
+html[data-theme="light"]{
+  --bg:#eef3f6; --grid:rgba(20,80,90,.04);
+  --panel:#ffffff; --panel-2:#f6fafb; --raise:#ffffff;
+  --line:rgba(12,60,70,.16); --line-soft:rgba(12,60,70,.09);
+  --ink:#0d2231; --ink-dim:#30495a; --muted:#5d7585;
+  --accent:#0b7a70; --accent-2:#0b7a70; --accent-ink:#ffffff;
+  --glow:rgba(11,122,112,.16); --chip:rgba(11,122,112,.08);
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{
+  margin:0;padding:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+a{color:var(--ink-dim);text-decoration:none;border-bottom:1px solid var(--line)}
+a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.ic{flex:none;width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.ic-solid{fill:currentColor;stroke:none}
+.mono{font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase}
+
+/* ---------- controls ---------- */
+.toolbar{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;
+  width:min(1160px,calc(100% - 32px));margin:20px auto 10px}
+.btn,.theme-button{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:7px;min-height:32px;padding:0 14px;cursor:pointer;
+  color:var(--ink-dim);background:var(--panel);border:1px solid var(--line);border-radius:2px;
+  transition:color .15s,border-color .15s,background .15s}
+.btn:hover,.theme-button:hover{color:var(--accent);border-color:var(--accent);background:var(--panel-2)}
+.btn:focus-visible,.theme-button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---------- shell ---------- */
+.cv{width:min(1160px,calc(100% - 32px));margin:0 auto 56px;
+  background:var(--panel);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:38px 40px 32px;background:
+  radial-gradient(120% 140% at 0% 0%,var(--raise) 0%,var(--panel) 62%);
+  border-bottom:1px solid var(--line)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,var(--accent),transparent 62%);opacity:.65}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.tag{font-size:10.5px;color:var(--accent);display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.tag::before{content:"";width:16px;height:1px;background:var(--accent)}
+h1{margin:0;font-size:clamp(34px,4.6vw,50px);line-height:1.02;letter-spacing:-.022em;font-weight:700}
+.role{margin:10px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent)}
+.summary{margin:20px 0 0;max-width:72ch;color:var(--ink-dim);font-size:14.5px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.stat{min-width:108px;padding:10px 14px;background:var(--panel-2);
+  border:1px solid var(--line-soft);border-left:2px solid var(--accent);border-radius:2px}
+.stat .k{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted)}
+.stat .v{display:block;margin-top:3px;font-size:17px;font-weight:650;color:var(--ink)}
+
+/* ---------- layout ---------- */
+.grid{display:grid;grid-template-columns:286px minmax(0,1fr)}
+.rail{padding:30px 26px;background:var(--panel-2);border-right:1px solid var(--line)}
+.body{padding:30px 40px 38px;min-width:0}
+
+/* ---------- panels + section heads ---------- */
+.panel{position:relative;padding:16px 16px 14px;margin-bottom:18px;
+  background:var(--panel);border:1px solid var(--line-soft);border-radius:2px}
+.panel::before,.panel::after{content:"";position:absolute;width:9px;height:9px;border:1px solid var(--accent);opacity:.75}
+.panel::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.panel::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.phead{display:flex;align-items:center;gap:8px;margin:0 0 12px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--accent)}
+.phead .ic{font-size:12px}
+
+.sec{display:flex;align-items:center;gap:12px;margin:0 0 16px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.sec::before{content:"";width:6px;height:6px;background:var(--accent);
+  box-shadow:0 0 0 3px var(--glow);flex:none}
+.sec::after{content:"";flex:1;height:1px;background:var(--line)}
+.sec .count{font-size:10px;color:var(--muted);letter-spacing:.12em}
+.block{margin-bottom:26px}
+
+/* ---------- rail content ---------- */
+.clist{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+.clist li{display:grid;grid-template-columns:15px 1fr;gap:2px 10px;align-items:start}
+.clist .ic{grid-row:span 2;margin-top:3px;color:var(--accent);font-size:14px}
+.clabel{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.clist a,.clist span.val{font-size:12.5px;color:var(--ink-dim);overflow-wrap:anywhere;border-bottom:0}
+.clist a:hover{color:var(--accent);border-bottom:1px solid var(--accent)}
+
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:0;padding:0;list-style:none}
+.tags li{font-size:11.5px;line-height:1.35;padding:4px 8px;color:var(--ink-dim);
+  background:var(--chip);border:1px solid var(--line-soft);border-radius:2px}
+
+.langs{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.langs li{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12px}
+.langs strong{color:var(--ink);font-weight:600}
+.langs span{color:var(--muted);text-align:right;font-size:11px}
+
+/* ---------- experience ---------- */
+.job{position:relative;padding:16px 18px;margin-bottom:12px;background:var(--panel-2);
+  border:1px solid var(--line-soft);border-left:2px solid var(--line);border-radius:2px}
+.job.now{border-left-color:var(--accent);box-shadow:-6px 0 18px -14px var(--glow)}
+.job-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.job h3{margin:0;font-size:15.5px;font-weight:650;letter-spacing:-.005em}
+.co{margin:3px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent)}
+.when{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;color:var(--muted);white-space:nowrap}
+.badge{display:inline-block;margin-left:8px;padding:2px 7px;font-family:var(--mono);font-size:8.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);
+  border-radius:2px;box-shadow:0 0 14px -2px var(--glow);vertical-align:1px}
+.phase{display:flex;align-items:center;gap:8px;margin:14px 0 7px;font-family:var(--mono);
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.phase::before{content:"";width:10px;height:1px;background:var(--accent);flex:none}
+.bl{list-style:none;margin:9px 0 0;padding:0;display:grid;gap:6px}
+.bl li{position:relative;padding-left:16px;font-size:13.5px;color:var(--ink-dim)}
+.bl li::before{content:"›";position:absolute;left:2px;top:-1px;color:var(--accent);font-weight:700}
+
+/* ---------- projects ---------- */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:9px}
+.proj{display:flex;flex-direction:column;padding:12px 13px;background:var(--panel-2);
+  border:1px solid var(--line-soft);border-radius:2px;transition:border-color .15s,transform .15s}
+.proj:hover{border-color:var(--accent);transform:translateY(-1px)}
+.proj h3{margin:0 0 5px;font-size:13px;font-weight:620;line-height:1.3}
+.pmeta{margin:0 0 10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--muted);line-height:1.5}
+.plinks{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.plinks a{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border:1px solid var(--line-soft);
+  border-radius:2px;background:var(--chip);font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-dim)}
+.plinks a:hover{color:var(--accent);border-color:var(--accent)}
+.more{margin:12px 0 0;font-size:12px;color:var(--muted)}
+
+/* ---------- education + note ---------- */
+.cred{display:flex;justify-content:space-between;align-items:baseline;gap:18px;
+  padding:11px 0;border-bottom:1px solid var(--line-soft)}
+.cred:last-of-type{border-bottom:0}
+.cred strong{font-size:14px;font-weight:620}
+.cred .det{color:var(--muted);font-size:12.5px;margin-left:9px}
+.note{display:flex;gap:11px;margin-top:20px;padding:13px 15px;background:var(--chip);
+  border:1px solid var(--line-soft);border-left:2px solid var(--accent);border-radius:2px;
+  color:var(--muted);font-size:12.5px}
+.note .ic{margin-top:3px;color:var(--accent);flex:none}
+
+/* ---------- responsive ---------- */
+@media screen and (max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .rail{border-right:0;border-bottom:1px solid var(--line)}
+  .hero,.body{padding-left:24px;padding-right:24px}
+  .hero{padding-top:30px}
+}
+@media screen and (max-width:560px){
+  body{font-size:14px}
+  .cv{width:100%;border-left:0;border-right:0;border-radius:0}
+  .hero,.body,.rail{padding-left:18px;padding-right:18px}
+  .pgrid{grid-template-columns:1fr}
+}
+
+/* ================= PRINT: follows the active theme, two A4 pages ========
+   Dark on screen prints dark. Switching to Light mode before printing still
+   produces the ink-friendly sheet, so both PDFs come from one control.      */
+@media print{
+  @page{size:A4;margin:0}
+  /* the root background propagates to the page canvas, so the dark ground
+     covers every page edge to edge rather than stopping with the content */
+  html{background:var(--bg)}
+  html,body{width:210mm;font-size:9.1pt;
+    print-color-adjust:exact;-webkit-print-color-adjust:exact;background-image:none}
+  body{background:transparent}
+  .toolbar{display:none}
+  .cv{width:210mm;margin:0;border:0;border-radius:0}
+  .hero{padding:11mm 11mm 7mm;background:var(--panel)}
+  .hero::after{display:none}
+  h1{font-size:25pt}
+  .role{font-size:9.5pt;margin-top:2mm}
+  .summary{margin-top:3mm;font-size:9.2pt;max-width:none}
+  .stats{gap:2mm;margin-top:4mm}
+  .stat{min-width:0;padding:1.6mm 3mm}
+  .stat .k{font-size:6pt}.stat .v{font-size:10pt}
+  .grid{grid-template-columns:57mm 1fr}
+  .rail{padding:9mm 6mm}
+  .body{padding:9mm 9mm 5mm}
+  .panel{padding:2.6mm 3mm 2.2mm;margin-bottom:3.4mm}
+  .phead{font-size:6.8pt;margin-bottom:2.2mm}
+  .clist{gap:2.1mm}
+  .clist a,.clist span.val{font-size:7.4pt;line-height:1.45}
+  .clabel{font-size:6pt}
+  .tags{gap:1mm}
+  .tags li{font-size:7.3pt;padding:0.8mm 1.7mm;line-height:1.3}
+  .langs{gap:1.6mm}.langs li{font-size:7.4pt}.langs span{font-size:6.8pt}
+  .sec{font-size:7.4pt;margin-bottom:2.8mm}
+  .block{margin-bottom:4.4mm}
+  .job{padding:2.6mm 3.2mm;margin-bottom:2.2mm}
+  .job h3{font-size:9.6pt}
+  .co{font-size:7.6pt}
+  .when{font-size:7pt}
+  .badge{font-size:5.8pt;padding:0.3mm 1.2mm;box-shadow:none}
+  .phase{margin:2.4mm 0 1.2mm;font-size:7pt}
+  .bl{gap:1mm;margin-top:1.4mm}
+  .bl li{font-size:8.6pt;padding-left:3.2mm}
+  .pgrid{grid-template-columns:repeat(2,1fr);gap:1.5mm}
+  .proj{padding:1.9mm 2.2mm}
+  .proj h3{font-size:8.5pt;margin-bottom:0.7mm}
+  .pmeta{font-size:6.7pt;margin-bottom:1.5mm}
+  .plinks{gap:1mm}
+  .plinks a{font-size:6pt;padding:0.4mm 1.4mm}
+  .more{font-size:7.2pt;margin-top:2mm}
+  .cred{padding:1.7mm 0}
+  .cred strong{font-size:8.6pt}.cred .det{font-size:7.4pt}
+  .note{margin-top:3mm;padding:2.2mm 2.6mm;font-size:7.2pt}
+  .job,.cred,.proj,.sec{break-inside:avoid}
+  a{border-bottom:0}
+}
+</style>
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><defs>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 2h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5L16 11l4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4 6.2 2 2 0 0 1 6.6 2z"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></symbol>
+<symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .3c-6.6 0-12 5.4-12 12 0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.8-1.6 8.2-6.1 8.2-11.4 0-6.6-5.4-12-12-12z"/></symbol>
+<symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.1 2.1 2.1 0 0 1 0 4.1zm1.8 13.1H3.6V9h3.5v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.5c0 1 .8 1.8 1.8 1.8h20.4c1 0 1.8-.8 1.8-1.8V1.7c0-1-.8-1.7-1.8-1.7z"/></symbol>
+<symbol id="i-android" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 0 1 15 0z"/><path d="m7 5.5 1.6 2.6M17 5.5l-1.6 2.6"/><path d="M9 15v4M15 15v4"/><path d="M4.5 12v5.5a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V12"/></symbol>
+<symbol id="i-apple" viewBox="0 0 24 24"><path d="M17.6 12.7c0-2.6 2.1-3.9 2.2-3.9-1.2-1.8-3.1-2-3.8-2-1.6-.2-3.1 1-3.9 1-.8 0-2-1-3.3-1-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5.7-1 1-2 1.1-2.1-.1 0-2.3-.9-2.3-3.8z"/><path d="M15 4.5c.7-.9 1.2-2 1.1-3.2-1 .1-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></symbol>
+<symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></symbol>
+</defs></svg>
+<div class="toolbar" aria-label="Document controls" data-i18n-skip>
+  <button class="btn" id="theme-toggle" type="button" aria-pressed="true">Light mode</button>
+  <button class="btn" type="button" onclick="window.print()" aria-label="Print or save this CV as PDF">Print / Save as PDF</button>
+</div>
+
+<main class="cv">
+  <header class="hero">
+    <div class="hero-top">
+      <div>
+        <p class="tag mono"><span>Curriculum Vitae</span></p>
+        <h1>Ngo Bao Long</h1>
+        <p class="role">Unity Developer</p>
+      </div>
+    </div>
+    <p class="summary">Unity Developer shipping 2D and 3D mobile games since 2021, across hyper-casual, hybrid-casual and puzzle genres. Experienced in gameplay development, SDK integration, Android and iOS releases, performance optimization, codebase modularization and developer mentoring. Focused on building maintainable systems and smooth player experiences across a wide range of mobile devices.</p>
+    <div class="stats">
+      <div class="stat"><span class="k">Developing since</span><span class="v">2021</span></div>
+      <div class="stat"><span class="k">Based in</span><span class="v">Ho Chi Minh City</span></div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <aside class="rail" aria-label="Contact details and technical skills">
+    <div class="panel">
+      <p class="phead"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg><span>Contact</span></p>
+      <ul class="clist">
+      <li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-mail"></use></svg><span class="clabel">Email</span><a href="mailto:longngo.dev@gmail.com">longngo.dev@gmail.com</a></li>
+      <li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg><span class="clabel">Phone</span><a href="tel:+84908406942">+84 908 406 942</a></li>
+      <li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-pin"></use></svg><span class="clabel">Location</span><span class="val">Ho Chi Minh City, Vietnam</span></li>
+      <li><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-globe"></use></svg><span class="clabel">Portfolio</span><a href="https://longngo104.github.io/Porfolio/" target="_blank" rel="noopener noreferrer">longngo104.github.io/Porfolio</a></li>
+      <li><svg class="ic ic-solid" aria-hidden="true" focusable="false"><use href="#i-github"></use></svg><span class="clabel">GitHub</span><a href="https://github.com/longngo104" target="_blank" rel="noopener noreferrer">github.com/longngo104</a></li>
+      <li><svg class="ic ic-solid" aria-hidden="true" focusable="false"><use href="#i-linkedin"></use></svg><span class="clabel">LinkedIn</span><a href="https://www.linkedin.com/in/long-ngo-4630a2310/" target="_blank" rel="noopener noreferrer">Long Ngo</a></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <p class="phead"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span>Core Expertise</span></p>
+      <ul class="tags">
+        <li>C# and Unity</li>
+        <li>2D / 3D gameplay systems</li>
+        <li>Mobile game optimization</li>
+        <li>Memory, FPS, crash and ANR analysis</li>
+        <li>Android and iOS delivery</li>
+        <li>Unity UI and animation</li>
+        <li>Spine and Shader Graph</li>
+        <li>Unity Editor tooling</li>
+        <li>Playable Ads with Luna</li>
+        <li>Asynchronous programming (async / await, coroutines)</li>
+        <li>Git workflows and code review</li>
+        <li>Azure DevOps and CI / CD pipelines</li>
+        <li>Agile / Scrum workflows</li>
+        <li>AI coding agent training and setup</li>
+        <li>AI-generated code review and refactoring</li>
+        <li>Reusable framework design</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <p class="phead"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-globe"></use></svg><span>SDKs &amp; Services</span></p>
+      <ul class="tags">
+        <li>Firebase</li>
+        <li>Adjust</li>
+        <li>Ad mediation SDKs</li>
+        <li>Mobile analytics</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <p class="phead"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-globe"></use></svg><span>Languages</span></p>
+      <ul class="langs">
+        <li><strong>Vietnamese</strong><span>Native</span></li>
+        <li><strong>English</strong><span>Advanced reading; basic communication</span></li>
+      </ul>
+    </div>
+    </aside>
+
+    <div class="body">
+      <section class="block" aria-labelledby="exp">
+        <h2 class="sec" id="exp"><span>Experience</span></h2>
+      <article class="job now">
+        <div class="job-h">
+          <div>
+            <h3>Unity Developer<span class="badge">Current</span></h3>
+            <p class="co">Jurrac Studio</p>
+          </div>
+          <span class="when">Jun 2026 - Present</span>
+        </div>
+        <ul class="bl">
+          <li>Developing puzzle games for mobile.</li>
+          <li>Training and configuring AI coding agents to support the development team.</li>
+          <li>Reviewing agent-generated code for maintainability and fixing it manually where needed.</li>
+          <li>Building reusable frameworks so generated code follows consistent, maintainable patterns.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="job-h">
+          <div>
+            <h3>Unity Developer / Mentor / Sub-Lead</h3>
+            <p class="co">Hapiga Studio</p>
+          </div>
+          <span class="when">Aug 2022 - May 2026</span>
+        </div>
+        <p class="phase"><span>Developer, Mentor and Sub-Lead | 2024 - 2026</span></p>
+        <ul class="bl">
+          <li>Profiled and optimized FPS, memory usage, crashes and ANRs to improve stability and gameplay quality on mobile devices.</li>
+          <li>Refactored production code into reusable modules, improving maintainability and development efficiency across projects.</li>
+          <li>Mentored junior developers through code reviews, debugging support and technical guidance.</li>
+          <li>Developed playable ads with Luna and collaborated with the user-acquisition team on creative production.</li>
+          <li>Evaluated and applied AI-assisted workflows to accelerate development while maintaining engineering review and quality control.</li>
+        </ul>
+        <p class="phase"><span>Unity Developer | 2022 - 2024</span></p>
+        <ul class="bl">
+          <li>Developed gameplay and supporting systems for commercial 2D and 3D mobile titles across hyper-casual, hybrid-casual and puzzle genres.</li>
+          <li>Integrated monetization and analytics SDKs, including ad mediation, Firebase and Adjust.</li>
+          <li>Diagnosed build and release issues and supported reliable publishing workflows for Android and iOS.</li>
+          <li>Collaborated with artists, designers and product stakeholders to turn gameplay requirements into production-ready features.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="job-h">
+          <div>
+            <h3>Unity Developer Intern</h3>
+            <p class="co">PocketSized Team</p>
+          </div>
+          <span class="when">May 2021 - Aug 2021</span>
+        </div>
+        <ul class="bl">
+          <li>Developed gameplay features for 2D hyper-casual and casual mobile games using Unity and C#.</li>
+          <li>Contributed to shipped titles including Bandit Hero, Tuber Rescue and Tower Quest: Epic Heroes.</li>
+        </ul>
+      </article>
+      </section>
+
+      <section class="block" aria-labelledby="proj">
+        <h2 class="sec" id="proj"><span>Complete Shipped Project List</span><span class="count">16</span></h2>
+        <div class="pgrid">
+        <div class="proj">
+          <h3>Wool Sort Color Puzzle</h3>
+          <p class="pmeta">Unity Developer | Mobile puzzle game</p>
+          <div class="plinks">
+            <a href="https://play.google.com/store/apps/details?id=com.wool.sort.color.puzzle" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-android"></use></svg><span>Android</span></a>
+            <a href="https://apps.apple.com/us/app/wool-sort-color-puzzle/id6748447511" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-apple"></use></svg><span>iOS</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Satismoment</h3>
+          <p class="pmeta">Unity Developer | Satisfying casual game</p>
+          <div class="plinks">
+            <a href="https://play.google.com/store/apps/details?id=com.satisfying.sort.puzzle" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-android"></use></svg><span>Android</span></a>
+            <a href="https://apps.apple.com/us/app/satismoment/id6503938930" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-apple"></use></svg><span>iOS</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>ASMR Ball Slider 3D</h3>
+          <p class="pmeta">Unity Developer | 3D casual game</p>
+          <div class="plinks">
+            <a href="https://appmagic.rocks/google-play/asmr-ball-slider-3d/com.hapiga.asmrball3d" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span>AppMagic</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Endless Climb: Stair Run</h3>
+          <p class="pmeta">Unity Developer | 3D runner</p>
+          <div class="plinks">
+            <a href="https://play.google.com/store/apps/details?id=com.infinitestaircase.climb.run" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-android"></use></svg><span>Android</span></a>
+            <a href="https://apps.apple.com/us/app/endless-climb-stair-run/id6468239614" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-apple"></use></svg><span>iOS</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Arrow A Row</h3>
+          <p class="pmeta">Unity Developer | Roguelite runner</p>
+          <div class="plinks">
+            <a href="https://play.google.com/store/apps/details?id=com.archer.rush.sword.arrow" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-android"></use></svg><span>Android</span></a>
+            <a href="https://apps.apple.com/us/app/arrow-a-row/id6479535362" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-apple"></use></svg><span>iOS</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Logic Match: Visual Puzzle</h3>
+          <p class="pmeta">Unity Developer | Horus Entertainment</p>
+          <div class="plinks">
+            <a href="https://play.google.com/store/apps/details?id=com.horus.trait.match.visual" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-android"></use></svg><span>Android</span></a>
+            <a href="https://apps.apple.com/us/app/logic-match-visual-puzzle/id6762239960" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-apple"></use></svg><span>iOS</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Water Sort: Color Matching</h3>
+          <p class="pmeta">Unity Developer | Hapiga Studio</p>
+          <div class="plinks">
+            <a href="https://appmagic.rocks/google-play/water-sort-color-matching/com.hapiga.watersort" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span>AppMagic</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Merge Brainrot: Puzzle Mania</h3>
+          <p class="pmeta">Unity Developer | Mobile merge puzzle</p>
+          <div class="plinks">
+            <a href="https://play.google.com/store/apps/details?id=com.meme.merge.gigachad" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-android"></use></svg><span>Android</span></a>
+            <a href="https://apps.apple.com/us/app/merge-brainrot-puzzle-mania/id6476873218" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-apple"></use></svg><span>iOS</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Block Fortress: Tower Defense</h3>
+          <p class="pmeta">Unity Developer | Hapiga Studio</p>
+          <div class="plinks">
+            <a href="https://appmagic.rocks/google-play/block-fortress-tower-defense/com.hero.defense.survive.tower" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span>AppMagic</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Digging a Hole: 3D Simulator</h3>
+          <p class="pmeta">Unity Developer | Hapiga Studio</p>
+          <div class="plinks">
+            <a href="https://play.google.com/store/apps/details?id=com.dig.hole.game.simulator" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-android"></use></svg><span>Android</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Bandit Hero</h3>
+          <p class="pmeta">Unity Developer | PocketSized Team</p>
+          <div class="plinks">
+            <a href="https://appmagic.rocks/google-play/bandit-hero/com.pocketsized.bandithero" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span>AppMagic</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Tuber Rescue</h3>
+          <p class="pmeta">Unity Developer | PocketSized Team</p>
+          <div class="plinks">
+            <a href="https://appmagic.rocks/google-play/tuber-rescue/com.pocketsized.tuberrescue" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span>AppMagic</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Tower Quest: Epic Heroes</h3>
+          <p class="pmeta">Unity Developer | PocketSized Team</p>
+          <div class="plinks">
+            <a href="https://appmagic.rocks/google-play/tower-quest-epic-heroes/com.pocketsized.towerquest" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span>AppMagic</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Tic Tac Toe - XOXO Game</h3>
+          <p class="pmeta">Unity Developer | Hapiga Studio</p>
+          <div class="plinks">
+            <a href="https://appmagic.rocks/google-play/tic-tac-toe-xoxo-game/com.hapiga.tictactoe.xoxo" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span>AppMagic</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Merge Avocado: Combine Fruits</h3>
+          <p class="pmeta">Unity Developer | Hapiga Studio</p>
+          <div class="plinks">
+            <a href="https://appmagic.rocks/iphone/merge-avocado-combine-fruits/6469774537" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span>AppMagic</span></a>
+          </div>
+        </div>
+        <div class="proj">
+          <h3>Hole 3D - Robot Fighting</h3>
+          <p class="pmeta">Unity Developer | Hapiga Studio</p>
+          <div class="plinks">
+            <a href="https://appmagic.rocks/google-play/hole-3d-robot-fighting/com.hapiga.hole.collect" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span>AppMagic</span></a>
+          </div>
+        </div>
+        </div>
+        <p class="more">Screenshots and additional store links are available on the <a href="https://longngo104.github.io/Porfolio/" target="_blank" rel="noopener noreferrer">full portfolio</a> .</p>
+      </section>
+
+      <section class="block" aria-labelledby="edu">
+        <h2 class="sec" id="edu"><span>Education &amp; Certification</span></h2>
+      <div class="cred">
+        <div><strong>HUTECH University of Technology</strong><span class="det">University studies</span></div>
+        <span class="when">2016 - 2018</span>
+      </div>
+      <div class="cred">
+        <div><strong>Game Developer Program</strong><span class="det"><a href="https://greenacademy.edu.vn/chuong-trinh-lap-trinh/khoa-hoc-lap-trinh-game" target="_blank" rel="noopener noreferrer">Green Academy</a></span></div>
+        <span class="when">2021 - 2022</span>
+      </div>
+      </section>
+
+      <p class="note"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg><span>References and further project details are available upon request. Commercial source code is subject to employer confidentiality.</span></p>
+    </div>
+  </div>
+</main>
+
+<script>
+(() => {
+  const btn = document.getElementById("theme-toggle");
+  const t = (s) => (window.I18N ? window.I18N.t(s) : s);
+  const sync = () => {
+    const dark = document.documentElement.dataset.theme !== "light";
+    btn.textContent = dark ? t("Light mode") : t("Dark mode");
+    btn.setAttribute("aria-pressed", String(dark));
+    btn.setAttribute("aria-label", dark ? t("Switch to light theme") : t("Switch to dark theme"));
+  };
+  btn.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("cv2-theme", next); } catch (e) {}
+    sync();
+  });
+  document.addEventListener("i18n:change", sync);
+  sync();
+})();
+</script>
+</body>
+</html>
