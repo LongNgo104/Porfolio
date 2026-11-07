@@ -153,6 +153,8 @@
     "Experience": "Kinh nghiệm làm việc",
     "Aug 2022 - May 2026": "08/2022 - 05/2026",
     "May 2021 - Aug 2021": "05/2021 - 08/2021",
+    "Jun 2026 - Present": "06/2026 - Hiện tại",
+    "Developing puzzle games for mobile.": "Phát triển game puzzle cho nền tảng mobile.",
     "Developer, Mentor and Sub-Lead | 2024 - 2026": "Developer, Mentor và Sub-Lead | 2024 - 2026",
     "Profiled and optimized FPS, memory usage, crashes and ANRs to improve stability and gameplay quality on mobile devices.":
       "Profiling và tối ưu FPS, mức sử dụng memory, crash và ANR để cải thiện độ ổn định cũng như chất lượng gameplay trên thiết bị di động.",
