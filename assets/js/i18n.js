@@ -137,7 +137,9 @@
     "Git workflows and code review": "Quy trình Git và code review",
     "Azure DevOps and CI / CD pipelines": "Azure DevOps và CI / CD pipeline",
     "Agile / Scrum workflows": "Quy trình Agile / Scrum",
-    "AI tool / agent assisted workflows": "Quy trình làm việc với AI tool / agent",
+    "AI coding agent training and setup": "Huấn luyện và thiết lập AI coding agent",
+    "AI-generated code review and refactoring": "Review và refactor code do AI sinh ra",
+    "Reusable framework design": "Thiết kế framework tái sử dụng",
     "SDKs & Services": "SDK & Dịch vụ",
     "Ad mediation SDKs": "SDK ad mediation",
     "Mobile analytics": "Analytics cho mobile",
@@ -155,6 +157,12 @@
     "May 2021 - Aug 2021": "05/2021 - 08/2021",
     "Jun 2026 - Present": "06/2026 - Hiện tại",
     "Developing puzzle games for mobile.": "Phát triển game puzzle cho nền tảng mobile.",
+    "Training and configuring AI coding agents to support the development team.":
+      "Huấn luyện và cấu hình AI coding agent để hỗ trợ team phát triển.",
+    "Reviewing agent-generated code for maintainability and fixing it manually where needed.":
+      "Review code do agent sinh ra để bảo đảm khả năng bảo trì, chỉnh tay khi cần.",
+    "Building reusable frameworks so generated code follows consistent, maintainable patterns.":
+      "Xây dựng các framework tái sử dụng để code sinh ra tuân theo pattern nhất quán, dễ bảo trì.",
     "Developer, Mentor and Sub-Lead | 2024 - 2026": "Developer, Mentor và Sub-Lead | 2024 - 2026",
     "Profiled and optimized FPS, memory usage, crashes and ANRs to improve stability and gameplay quality on mobile devices.":
       "Profiling và tối ưu FPS, mức sử dụng memory, crash và ANR để cải thiện độ ổn định cũng như chất lượng gameplay trên thiết bị di động.",
