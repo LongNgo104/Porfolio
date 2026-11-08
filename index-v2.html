@@ -6,7 +6,7 @@
 <meta name="description" content="Long Ngo - Unity Developer building 2D and 3D mobile games since 2021.">
 <meta name="color-scheme" content="dark light">
 <title>Long Ngo Portfolio</title>
-<script src="assets/js/i18n-v2.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
 <script>
 (() => { try { const t = localStorage.getItem("cv2-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {} })();
 </script>
@@ -228,7 +228,6 @@ form .btn{justify-self:start}
         <a class="btn" href="#contact">Get In Touch</a>
       </div>
       <div class="stats">
-        <div class="stat"><span class="k">Titles shipped</span><span class="v">16</span></div>
         <div class="stat"><span class="k">Developing since</span><span class="v">2021</span></div>
         <div class="stat"><span class="k">Based in</span><span class="v">Ho Chi Minh City</span></div>
       </div>
@@ -545,7 +544,7 @@ form .btn{justify-self:start}
 <div class="lightbox" id="lightbox" hidden>
   <button class="lb-close" type="button" aria-label="Close">&times;</button>
   <figure>
-    <img id="lb-img" src="" alt="">
+    <img id="lb-img" alt="">
     <figcaption id="lb-cap" class="mono"></figcaption>
   </figure>
 </div>
@@ -564,7 +563,7 @@ form .btn{justify-self:start}
     box.querySelector(".lb-close").focus();
   };
   const close = () => {
-    box.hidden = true; img.src = ""; document.body.style.overflow = "";
+    box.hidden = true; img.removeAttribute("src"); document.body.style.overflow = "";
     if (lastFocus) lastFocus.focus();
   };
   document.querySelectorAll(".shot").forEach((b) =>
